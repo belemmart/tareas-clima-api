@@ -55,3 +55,5 @@ app.post(
   }
 );
 
+const tareasRouter = require('./routes/tareas');
+app.use('/api/tareas', tareasRouter);
