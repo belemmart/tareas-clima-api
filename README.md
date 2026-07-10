@@ -8,3 +8,5 @@ Proyecto integrador que implementa un servicio web tipo REST para la gestión de
 * **204 No Content:** Eliminación exitosa (DELETE).
 * **400 Bad Request:** Error de validación en los datos del usuario.
 * **404 Not Found:** El recurso solicitado no existe.
+
+* **502 Bad Gateway** Error de servicio externo. Nuestro servidor funciona, pero el proveedor de clima falló o no respondió.

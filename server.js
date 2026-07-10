@@ -55,5 +55,10 @@ app.post(
   }
 );
 
+
 const tareasRouter = require('./routes/tareas');
 app.use('/api/tareas', tareasRouter);
+
+
+const climaRoutes = require('./routes/clima');
+app.use('/api/clima', climaRoutes);
