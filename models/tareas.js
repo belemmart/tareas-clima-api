@@ -1,20 +1,27 @@
-const express = require('express');
-const router = express.Router();
-const tareasModel = require('../models/tareasModel'); // Ajusta tu ruta
+let tareas = [
+  { id: 1, titulo: 'Revisar documentación de la API', completada: false },
+  { id: 2, titulo: 'Configurar certificado HTTPS', completada: true }
+];
+let siguienteId = 3;
 
-router.delete('/:id', (req, res) => {
-    const id = req.params.id;
-    
-    // Suponiendo que tareasModel.eliminar es tu función
-    const eliminada = tareasModel.eliminar(id); 
-
-    if (eliminada) {
-        // Código 204: Éxito, pero no hay contenido que devolver
-        return res.status(204).send(); 
-    } else {
-        // Código 404: No se encontró el recurso solicitado()
-        return res.status(404).json({ error: "Tarea no encontrada" });
-    }
-});
-
-module.exports = router;
+module.exports = {
+  obtenerTodas: () => tareas,
+  obtenerPorId: (id) => tareas.find(t => t.id === id),
+  crear: (titulo) => {
+    const nueva = { id: siguienteId++, titulo, completada: false };
+    tareas.push(nueva);
+    return nueva;
+  },
+  actualizar: (id, datos) => {
+    const tarea = tareas.find(t => t.id === id);
+    if (!tarea) return null;
+    Object.assign(tarea, datos);
+    return tarea;
+  },
+  eliminar: (id) => {
+    const index = tareas.findIndex(t => t.id === id);
+    if (index === -1) return false;
+    tareas.splice(index, 1);
+    return true; 
+}
+};
