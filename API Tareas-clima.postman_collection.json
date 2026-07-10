@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "8851f70a-13e1-493c-a4a8-7fc34bb04801",
+    "name": "API Tareas-clima",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56454415",
+    "_collection_link": "https://go.postman.co/collection/56454415-8851f70a-13e1-493c-a4a8-7fc34bb04801?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar todas las tareas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:3000/api/tareas",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear nueva tarea",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"titulo\": \"Nueva tarea\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:3000/api/tareas",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Por id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"titulo\": \"Tarea actualizada\", \"completada\": true }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:3000/api/tareas/:id",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Tarea eliminada",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"titulo\": \"Tarea actualizada\", \"completada\": true }"
+        },
+        "url": {
+          "raw": "https://localhost:3000/api/tareas/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminacion correcta",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
