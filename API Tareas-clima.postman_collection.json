@@ -127,6 +127,76 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Camino Feliz(ciudad valida)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:3000/api/clima/Toluca",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "clima",
+            "Toluca"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "validación de caracteres (400)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:3000/api/clima/123",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "clima",
+            "123"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ciudad que no existe",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:3000/api/tareas/1/clima?ciudad=CiudadFalsa123",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "tareas",
+            "1",
+            "clima"
+          ],
+          "query": [
+            {
+              "key": "ciudad",
+              "value": "CiudadFalsa123"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
