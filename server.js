@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express');
+const app = express();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const { body, validationResult } = require('express-validator');
 
-const app = express();
 
 app.use(helmet());              // cabeceras de seguridad HTTP
 app.use(express.json());        // parseo seguro de JSON
@@ -27,8 +27,8 @@ app.get('/api/salud', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-module.exports = app;
 
+module.exports = app;
 
 app.post(
   '/api/registro',
@@ -56,9 +56,15 @@ app.post(
 );
 
 
+const authRouter = require('./routes/auth');
+const verificarToken = require('./middleware/auth');
 const tareasRouter = require('./routes/tareas');
-app.use('/api/tareas', tareasRouter);
+const climaRouter = require('./routes/clima');
+
+app.use('/api/auth', authRouter);
+
+app.use('/api/tareas', verificarToken, tareasRouter);
+
+app.use('/api/clima',verificarToken,climaRouter);
 
 
-const climaRoutes = require('./routes/clima');
-app.use('/api/clima', climaRoutes);
